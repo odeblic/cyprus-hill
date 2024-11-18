@@ -1,0 +1,14 @@
+msc {
+    hscale="1.2";
+
+    M [label="Message Source"],
+    A [label="Component A"],
+    B [label="Component B"],
+    S [label="External Server"];
+
+    M >> A [label="send messages\n(stdin, file, UDP)"];
+    A => B [label="forward messages\n(TCP)"];
+    B note B [label="check whether prices are greater than 80"];
+    B => S [label="send price x5\n(TCP)"];
+    B <= S [label="reply with OK\n(TCP)"];
+}
